@@ -15,6 +15,31 @@ window
   .addEventListener("change", setFavicon);
 
 $(document).ready(function () {
+  // hamburger menu
+  $(".menu-wrap").click(function (e) {
+    $("header .menu-wrapper").animate({ top: "0" }, 300, "linear");
+    $("body").css("overflow-y", "hidden");
+  });
+
+  $("header .menu-wrapper").click(function (e) {
+    e.stopPropagation();
+  });
+
+  $("header .close-menu").click(function () {
+    $("body").css("overflow-y", "visible");
+    $("header .menu-wrapper").animate({ top: "-100%" }, 300, "linear");
+    setTimeout(() => {
+      $(".navbar-collapse").removeClass("show");
+    }, 300);
+  });
+
+  // // body click
+  // $("body").click(function () {
+  //   $("body").css("overflow-y", "visible");
+  //   $(".lang-list").slideUp();
+  //   $("header .menu-wrapper").animate({ top: "-100%" }, 300, "linear");
+  // });
+
   var swiper = new Swiper(".swiper-container-h", {
     direction: "horizontal",
     effect: "slide",

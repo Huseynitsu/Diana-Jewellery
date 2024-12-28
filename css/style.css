@@ -7,6 +7,152 @@
     font-family: "Montserrat", serif;
 }
 
+header #myMenu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+}
+
+header .menu-wrapper {
+    position: fixed;
+    right: 0;
+    top: -100%;
+    /* width: 65%; */
+    width: 100%;
+    height: 100vh;
+    background-color: #292f4a;
+    overflow-y: auto;
+}
+
+header .menu-wrapper .close-menu {
+    position: absolute;
+    top: 30px;
+    right: 90px;
+    width: 22px;
+    cursor: pointer;
+    z-index: 3;
+    border: none;
+    background-color: unset;
+}
+
+header .menu-wrapper .close-menu img {
+    width: 100%;
+}
+
+header .menu-wrapper .menu-content-wrap {
+    padding: 30px 60px;
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+}
+
+header .menu-wrapper .menu-content-wrap::before {
+    -webkit-filter: opacity(0.05);
+    filter: opacity(0.05);
+    background-image: url(/img/jepattern.png);
+    background-repeat: repeat;
+}
+
+header .menu-wrapper .menu-content-wrap::before,
+#ad-types::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+header .menu-wrapper .section-flex {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap {
+    margin: 25px 0;
+}
+
+.br-right {
+    border-right: 1px solid white;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap h6,
+header .menu-wrapper .section-flex .nav-list-wrap .h6 {
+    font-size: 20px;
+    /* color: #f4afa5; */
+    color: #e9a872;
+    margin-bottom: 16px;
+    padding: 0 30px;
+    display: block;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap li {
+    font-size: 18px;
+    color: #fff;
+    margin: 4px 0;
+    padding: 0 30px;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap li span {
+    padding-right: 15px;
+    /* width: 23%; */
+    width: 23.1%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap li address {
+    margin-bottom: 0;
+    display: inline-block;
+    width: 75%;
+}
+
+header .menu-wrapper .section-flex .nav-list-wrap li a {
+    color: #fff;
+    -webkit-transition: 500ms all ease;
+    transition: 500ms all ease;
+}
+
+header .menu-wrapper .section-flex .section-middle {
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+header .menu-wrapper .section-flex .section-bottom .nav-list-wrap h6 {
+    /* padding-left: calc(24% + 13px); */
+    padding-left: calc(24% + 13px);
+}
+
+header .menu-wrapper .section-flex .section-bottom .nav-list-wrap:nth-child(2) .nav-list::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background-color: #fff;
+}
+
 header {
     background-color: transparent;
     padding: 10px 0;
@@ -81,25 +227,19 @@ header nav ul a:not(.active):hover::after {
 .header_right button {
     position: relative;
     padding: 15px 45px;
-    background: #fec195;
+    background: #292f4a;
     font-size: 17px;
     font-weight: 500;
-    color: #181818;
+    color: #fff;
     cursor: pointer;
-    border: 1px solid #fec195;
+    border: 1px solid #292f4a;
     border-radius: 8px;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
     animation: wind 2s ease-in-out infinite;
 }
 
-.header_right button:hover {
-    border: 1px solid #f3b182;
-    background: linear-gradient(85deg,
-            #fec195,
-            #fcc196,
-            #fabd92,
-            #fac097,
-            #fac39c);
+.header_right button svg {
+    fill: #D4AF37;
 }
 
 @keyframes wind {
@@ -214,7 +354,8 @@ header nav ul a:not(.active):hover::after {
 
 /* slider start */
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
     position: absolute;
     opacity: 0;
 }
