@@ -53,7 +53,7 @@ header .menu-wrapper .menu-content-wrap {
 header .menu-wrapper .menu-content-wrap::before {
     -webkit-filter: opacity(0.05);
     filter: opacity(0.05);
-    background-image: url(/img/jepattern.png);
+    background-image: url(https://cdn1.ozone.ru/s3/multimedia-z/6326764871.jpg);
     background-repeat: repeat;
 }
 
