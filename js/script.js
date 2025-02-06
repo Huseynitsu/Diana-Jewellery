@@ -1,3 +1,33 @@
+document.querySelectorAll(".card-wrap").forEach((cardWrap) => {
+  const card = cardWrap.querySelector(".project_card");
+  const cardBg = cardWrap.querySelector(".card-bg");
+  const imageUrl = cardWrap.dataset.image;
+  cardBg.style.backgroundImage = `url(${imageUrl})`;
+
+  let width, height, mouseX, mouseY;
+
+  cardWrap.addEventListener("mousemove", (e) => {
+    const rect = cardWrap.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    mouseX = e.clientX - rect.left - width / 2;
+    mouseY = e.clientY - rect.top - height / 2;
+
+    const rotateX = (mouseY / height) * -30;
+    const rotateY = (mouseX / width) * 30;
+
+    card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+    cardBg.style.transform = `translateX(${
+      (mouseX / width) * -40
+    }px) translateY(${(mouseY / height) * -40}px)`;
+  });
+
+  cardWrap.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateY(0deg) rotateX(0deg)";
+    cardBg.style.transform = "translateX(0) translateY(0)";
+  });
+});
+
 const setFavicon = () => {
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const favicon = document.querySelector("link[rel='icon']");
@@ -103,7 +133,7 @@ $(document).ready(function () {
   var swiper = new Swiper(".swiper-container-h1", {
     direction: "horizontal",
     effect: "slide",
-    autoplay: false,
+    autoplay: true,
     parallax: true,
     speed: 1600,
     rtl: true,
@@ -132,14 +162,14 @@ $(document).ready(function () {
   var swiperProduct = new Swiper(".productSwiper", {
     direction: "horizontal",
     effect: "slide",
-    autoplay: false,
+    autoplay: true,
     parallax: true,
     speed: 1600,
     rtl: true,
     loop: true,
     centeredSlides: true,
     loopFillGroupWithBlank: true,
-    slidesPerView: 5,
+    slidesPerView: 4.5,
     spaceBetween: 20,
     keyboard: {
       enabled: true,
